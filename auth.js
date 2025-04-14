@@ -1,4 +1,4 @@
-// Toggle between login and register forms
+
 function toggleForms() {
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
@@ -7,7 +7,6 @@ function toggleForms() {
     registerForm.classList.toggle('hidden');
 }
 
-// Toggle password visibility
 document.querySelectorAll('.toggle-password').forEach(toggle => {
     toggle.addEventListener('click', function() {
         const input = this.previousElementSibling;
@@ -18,7 +17,7 @@ document.querySelectorAll('.toggle-password').forEach(toggle => {
     });
 });
 
-// Password validation
+
 const passwordInput = document.getElementById('register-password');
 const requirements = {
     length: document.getElementById('length'),
@@ -31,14 +30,14 @@ const requirements = {
 passwordInput.addEventListener('input', function() {
     const password = this.value;
     
-    // Check length
+    
     if (password.length >= 8) {
         requirements.length.classList.add('valid');
     } else {
         requirements.length.classList.remove('valid');
     }
     
-    // Check uppercase
+    
     if (/[A-Z]/.test(password)) {
         requirements.uppercase.classList.add('valid');
     } else {
@@ -52,14 +51,14 @@ passwordInput.addEventListener('input', function() {
         requirements.lowercase.classList.remove('valid');
     }
     
-    // Check number
+     
     if (/[0-9]/.test(password)) {
         requirements.number.classList.add('valid');
     } else {
         requirements.number.classList.remove('valid');
     }
     
-    // Check special character
+    
     if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
         requirements.special.classList.add('valid');
     } else {
@@ -67,14 +66,14 @@ passwordInput.addEventListener('input', function() {
     }
 });
 
-// Phone number formatting
+
 const phoneInput = document.getElementById('register-phone');
 phoneInput.addEventListener('input', function(e) {
     let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
     e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
 });
 
-// Form validation
+
 function validateLoginForm(event) {
     event.preventDefault();
     
@@ -86,7 +85,7 @@ function validateLoginForm(event) {
         return false;
     }
     
-    // Add your login logic here
+    
     console.log('Login form submitted');
     return false;
 }
@@ -121,7 +120,7 @@ function validateRegisterForm(event) {
         return false;
     }
     
-    // Add your registration logic here
+    
     console.log('Registration form submitted');
     return false;
 }
@@ -137,7 +136,7 @@ function isPasswordValid(password) {
 }
 
 function showError(message) {
-    // Create error element
+    
     const errorDiv = document.createElement('div');
     errorDiv.className = 'error-message';
     errorDiv.style.cssText = `
@@ -151,17 +150,17 @@ function showError(message) {
     `;
     errorDiv.textContent = message;
     
-    // Remove any existing error messages
+    
     const existingError = document.querySelector('.error-message');
     if (existingError) {
         existingError.remove();
     }
     
-    // Add the new error message
+    
     const activeForm = document.querySelector('.form-section:not(.hidden)');
     activeForm.insertBefore(errorDiv, activeForm.firstChild);
     
-    // Remove the error message after 5 seconds
+    
     setTimeout(() => {
         errorDiv.style.animation = 'fadeOut 0.3s ease-in-out';
         setTimeout(() => errorDiv.remove(), 300);
