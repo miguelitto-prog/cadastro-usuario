@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticação - Meu Site</title>
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <!-- Login Form -->
+            <div class="form-section" id="login-form">
+                <h2>Login</h2>
+                <form onsubmit="return validateLoginForm(event)">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="login-email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="login-password" placeholder="Senha" required>
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                    <div class="remember-forgot">
+                        <label>
+                            <input type="checkbox" id="remember-me"> Lembrar-me
+                        </label>
+                        <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                    </div>
+                    <button type="submit" class="btn-submit">Entrar</button>
+                </form>
+                <p class="switch-form">Não tem uma conta? <a href="#" onclick="toggleForms()">Registre-se</a></p>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="form-section hidden" id="register-form">
+                <h2>Cadastro</h2>
+                <form onsubmit="return validateRegisterForm(event)">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="register-name" placeholder="Nome completo" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="register-email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="register-phone" placeholder="Telefone" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="register-password" placeholder="Senha" required>
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="register-confirm-password" placeholder="Confirmar senha" required>
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                    <div class="password-requirements">
+                        <p>A senha deve conter:</p>
+                        <ul>
+                            <li id="length">Mínimo 8 caracteres</li>
+                            <li id="uppercase">Uma letra maiúscula</li>
+                            <li id="lowercase">Uma letra minúscula</li>
+                            <li id="number">Um número</li>
+                            <li id="special">Um caractere especial</li>
+                        </ul>
+                    </div>
+                    <div class="terms">
+                        <label>
+                            <input type="checkbox" id="terms-checkbox" required>
+                            Eu aceito os <a href="#">Termos de Uso</a> e a <a href="#">Política de Privacidade</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-submit">Cadastrar</button>
+                </form>
+                <p class="switch-form">Já tem uma conta? <a href="#" onclick="toggleForms()">Faça login</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html>
