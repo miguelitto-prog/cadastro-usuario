@@ -44,7 +44,7 @@ passwordInput.addEventListener('input', function() {
         requirements.uppercase.classList.remove('valid');
     }
     
-    // Check lowercase
+   
     if (/[a-z]/.test(password)) {
         requirements.lowercase.classList.add('valid');
     } else {
